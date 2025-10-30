@@ -1,0 +1,94 @@
+[[usagePage]]
+id = 0x0011
+name = 'SoC'
+[[usagePage.usage]]
+id = 0x01
+name = 'SocControl'
+types = ['CA']
+[[usagePage.usage]]
+id = 0x02
+name = 'FirmwareTransfer'
+types = ['CL']
+[[usagePage.usage]]
+id = 0x03
+name = 'FirmwareFileId'
+types = ['DV']
+[[usagePage.usage]]
+id = 0x04
+name = 'FileOffsetInBytes'
+types = ['DV']
+[[usagePage.usage]]
+id = 0x05
+name = 'FileTransferSizeMaxInBytes'
+types = ['DV']
+[[usagePage.usage]]
+id = 0x06
+name = 'FilePayload'
+types = ['DV']
+[[usagePage.usage]]
+id = 0x07
+name = 'FilePayloadSizeInBytes'
+types = ['DV']
+[[usagePage.usage]]
+id = 0x08
+name = 'FilePayloadContainsLastBytes'
+types = ['DF']
+[[usagePage.usage]]
+id = 0x09
+name = 'FileTransferStop'
+types = ['DF']
+[[usagePage.usage]]
+id = 0x0A
+name = 'FileTransferTillEnd'
+types = ['DF']
+[[applicationCollection]]
+usage = ['SoC', 'SocControl']
+[[applicationCollection.inputReport]]
+[[applicationCollection.inputReport.logicalCollection]]
+usage = ['SoC', 'FirmwareTransfer']
+[[applicationCollection.inputReport.logicalCollection.variableItem]]
+usage = ['SoC', 'FirmwareFileId']
+logicalValueRange = [1, 3]
+[[applicationCollection.inputReport.logicalCollection.variableItem]]
+usage = ['SoC', 'FileTransferTillEnd']
+sizeInBits = 1
+logicalValueRange = 'maxUnsignedSizeRange'
+[[applicationCollection.inputReport.logicalCollection.variableItem]]
+usage = ['SoC', 'FileOffsetInBytes']
+sizeInBits = 16
+logicalValueRange = 'maxUnsignedSizeRange'
+[[applicationCollection.inputReport.logicalCollection.variableItem]]
+usage = ['SoC', 'FileTransferSizeMaxInBytes']
+sizeInBits = 16
+logicalValueRange = 'maxUnsignedSizeRange'
+[[applicationCollection.inputReport]]
+[[applicationCollection.inputReport.logicalCollection]]
+usage = ['SoC', 'FirmwareTransfer']
+[[applicationCollection.inputReport.logicalCollection.variableItem]]
+usage = ['SoC', 'FileTransferStop']
+sizeInBits = 1
+logicalValueRange = 'maxUnsignedSizeRange'
+[[applicationCollection.outputReport]]
+[[applicationCollection.outputReport.logicalCollection]]
+usage = ['SoC', 'FirmwareTransfer']
+# LogicalRange same as the InputReport.
+[[applicationCollection.outputReport.logicalCollection.variableItem]]
+usage = ['SoC', 'FirmwareFileId']
+logicalValueRange = [1, 3]
+[[applicationCollection.outputReport.logicalCollection.variableItem]]
+usage = ['SoC', 'FilePayloadContainsLastBytes']
+sizeInBits = 1
+logicalValueRange = 'maxUnsignedSizeRange'
+[[applicationCollection.outputReport.logicalCollection.variableItem]]
+usage = ['SoC', 'FileOffsetInBytes']
+sizeInBits = 16
+logicalValueRange = 'maxUnsignedSizeRange'
+# Range is the same as FilePayload count.
+[[applicationCollection.outputReport.logicalCollection.variableItem]]
+usage = ['SoC', 'FilePayloadSizeInBytes']
+logicalValueRange = [0, 8000]
+[[applicationCollection.outputReport.logicalCollection.variableItem]]
+usage = ['SoC', 'FilePayload']
+sizeInBits = 8
+logicalValueRange = 'maxUnsignedSizeRange'
+count = 8000
